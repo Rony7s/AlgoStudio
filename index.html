@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/@highlightjs/cdn-assets@11.8.0/languages/cpp.min.js"></script>
     <script>hljs.highlightAll();</script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mainStyle.css">
     <title>Algo-Studio-Home</title>
 </head>
 
@@ -47,13 +47,15 @@
 
         <div class="mt-4 p-5 bg-primary text-white rounded">
             <h1>Welcome to AlgoStudio</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, autem quam optio velit fugit nemo. Adipisci
-                soluta reprehenderit maiores nam libero consequuntur! Magnam eos tempora debitis impedit quam odit
-                repellat!</p>
+            <p>Welcome to Algostudio, your go-to destination for mastering the fundamentals of data structures! At Algostudio, we believe that a strong foundation in data structures is key to unlocking the true potential of computer science and programming. Whether you're a budding programmer or a seasoned developer looking to brush up on the basics, Algostudio is designed to be your comprehensive guide.</p>
         </div>
 
         <div class="mt-4 p-5 bg-white text-primary rounded">
             <h1>Bubble Sort</h1>
+             
+            <p>Bubble sort is a basic sorting algorithm that iteratively compares adjacent elements in a list and swaps them if they are in the wrong order. This process continues until no more swaps are needed, resulting in a sorted list. It's named "bubble sort" because larger elements tend to bubble their way to the end of the list during each pass. While bubble sort is straightforward to understand and implement, it is not efficient for large datasets due to its time complexity of O(n^2), where n is the number of elements. As a result, it's primarily used for educational purposes or small datasets, and more efficient sorting algorithms are favored in practical applications.</p>
+        
+            <br>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
@@ -109,8 +111,10 @@ int main(){
                     </code>
                 </pre>
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="tab-pane fade clearText" id="profile" role="tabpanel" aria-labelledby="profile-tab" >
+                    <br>
                     <h1>Bubble Sort Algorithm:</h1>
+                    <br>
 
 <h6>Start with an unsorted array of elements.</h6>
 
@@ -140,9 +144,17 @@ int main(){
                 </div>
                 <br>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, autem quam optio velit fugit nemo. Adipisci
-                soluta reprehenderit maiores nam libero consequuntur! Magnam eos tempora debitis impedit quam odit
-                repellat!</p>
+            <div class="boxAd">
+                <h1>Advantages of Bubble Sort Algorithm</h1>
+    <p>Bubble sort is a simple sorting algorithm with some advantages:</p>
+    <ul>
+        <li>Simplicity: Bubble sort is one of the simplest sorting algorithms to understand and implement. It involves comparing adjacent elements and swapping them if they are in the wrong order. This simplicity makes it a good choice for educational purposes or as a starting point for learning about sorting algorithms.</li>
+        <li>No additional data structures: Bubble sort doesn't require any additional data structures such as arrays or linked lists for sorting. It works directly on the given array, which can be an advantage when memory usage is a concern.</li>
+        <li>In-place sorting: Bubble sort is an in-place sorting algorithm, meaning it doesn't require additional memory for temporary storage of elements. This can be advantageous when working with limited memory resources.</li>
+    </ul>
+    <p>However, it's important to note that bubble sort has several significant disadvantages, including its poor time complexity. It is not suitable for sorting large datasets because it has a time complexity of O(n^2), where n is the number of elements to be sorted. There are much more efficient sorting algorithms available, such as quicksort, mergesort, and heapsort, which are generally preferred for practical applications when performance is a concern. Bubble sort is mainly used for educational purposes or when simplicity is more important than efficiency.</p>
+
+            </div>
 
         </div>
 

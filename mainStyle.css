@@ -1,0 +1,31 @@
+body{
+    font-family: "Times New Roman", Times, serif;
+}
+.container_Animation {
+    position: relative;
+    height: 200px;
+    width: 375px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .box {
+    width: calc(10% - 4px);
+    background: limegreen;
+    /* border: 1px solid; */
+    position: absolute;
+    text-align: center;
+    /* flex-shrink: 0; */
+  }
+  
+  .box.check {
+    background: orange;
+  }
+  
+  .box.sorted {
+    background: skyblue;
+  }
+
+  .clearText h6{
+    color: black;
+  }

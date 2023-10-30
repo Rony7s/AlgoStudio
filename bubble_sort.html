@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script defer src="jquery.js"></script>
+    <script defer src="algostudio.js"></script>
+    <script defer src="bubbleSort.js"></script>
+    <link rel="stylesheet" href="manu.css">
+    <!-- <script defer src="app3.js"></script> -->
+    <style>
+      .item-container {
+        height: 200px;
+        display: flex;
+        gap: 1rem;
+        align-items: end;
+        margin: auto;
+      }
+      .box {
+        width: 50px;
+        background: limegreen;
+        transform: translate3d(0px, 0px, 0px);
+        text-align: center;
+        transition: 300ms transform linear;
+      }
+      .box2 {
+        width: 50px;
+        height: 93px;
+        background: limegreen;
+        text-align: center;
+        transform: translate3d(0px, 0px, 0px);
+        transition: 300ms transform linear;
+      }
+
+      .processing {
+        background: orange;
+      }
+      .sorted {
+        background: skyblue;
+      }
+      .comparing {
+        z-index: 99;
+        background: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="#">Algostudio</a>
+      <a href="index.html">Home</a>
+      <a  class="active"  href="bubble_sort.html">Bubble Sort</a>
+      <a href="selection_sort.html">Selection Sort</a>
+      <a href="about.html">About</a>
+    </div>
+    <br>
+    <div class="item-container"></div>
+    <div class="log"></div>
+    <button id="next">Next</button>
+    <br>
+  </body>
+</html>
