@@ -1,0 +1,1189 @@
+Data collection
+insertion sort
+Insertion sort is a sorting algorithm in which the elements are transferred one at a time to the right position. In other words, an insertion sort helps in building the final sorted list, one item at a time, with the movement of higher-ranked elements. An insertion sort has the benefits of simplicity and low overhead.
+Algorithm
+The simple steps of achieving the insertion sort are listed as follows -
+Step 1 - If the element is the first element, assume that it is already sorted. Return 1.
+Step2 - Pick the next element, and store it separately in a key.
+Step3 - Now, compare the key with all elements in the sorted array.
+Step 4 - If the element in the sorted array is smaller than the current element, then move to the next element. Else, shift greater elements in the array towards the right.
+            Step 5 - Insert the value.
+             Step 6 - Repeat until the array is sorted.
+
+
+
+Example 1:
+#include <stdio.h>
+
+void insertionSort(int arr[], int n) {
+  int i, key, j;
+  for (i = 1; i < n; i++) {
+    key = arr[i];
+    j = i - 1;
+    while (j >= 0 && arr[j] > key) {
+      arr[j + 1] = arr[j];
+      j--;
+    }
+    arr[j + 1] = key;
+  }
+}
+
+int main() {
+  int arr[] = {5, 3, 2, 1, 4};
+  int n = sizeof(arr) / sizeof(arr[0]);
+
+  insertionSort(arr, n);
+
+  for (int i = 0; i < n; i++) {
+    printf("%d ", arr[i]);
+  }
+
+  return 0;
+}
+
+Output:
+1 2 3 4 5
+Example 2:
+#include <stdio.h>
+
+void insertionSort(char arr[], int n) {
+  int i, key, j;
+  for (i = 1; i < n; i++) {
+    key = arr[i];
+    j = i - 1;
+    while (j >= 0 && arr[j] > key) {
+      arr[j + 1] = arr[j];
+      j--;
+    }
+    arr[j + 1] = key;
+  }
+}
+
+int main() {
+  char arr[] = {'c', 'a', 'b'};
+  int n = sizeof(arr) / sizeof(arr[0]);
+
+  insertionSort(arr, n);
+
+  for (int i = 0; i < n; i++) {
+    printf("%c ", arr[i]);
+  }
+
+  return 0;
+}
+
+Output:
+a b c
+Example 3:
+
+#include <stdio.h>
+
+void insertionSort(float arr[], int n) {
+  int i, key, j;
+  for (i = 1; i < n; i++) {
+    key = arr[i];
+    j = i - 1;
+    while (j >= 0 && arr[j] > key) {
+      arr[j + 1] = arr[j];
+      j--;
+    }
+    arr[j + 1] = key;
+  }
+}
+
+int main() {
+  float arr[] = {5.5, 3.3, 2.2, 1.1, 4.4};
+  int n = sizeof(arr) / sizeof(arr[0]);
+
+  insertionSort(arr, n);
+
+  for (int i = 0; i < n; i++) {
+    printf("%f ", arr[i]);
+  }
+
+  return 0;
+}
+
+
+Output:
+1.10 2.20 3.30 4.40 5.50
+Example 4:
+#include<stdio.h>
+
+void insertionSort(int arr[], int n) {
+int i, key, j;
+for (i = 1; i < n; i++) {
+	key = arr[i];
+	j = i - 1;
+	while (j >= 0 && arr[j] > key) {
+		arr[j + 1] = arr[j];
+		j = j - 1;
+	}
+	arr[j + 1] = key;
+}
+}
+
+void printArray(int arr[], int n) {
+int i;
+for (i = 0; i < n; i++)
+	printf("%d ", arr[i]);
+printf("\n");
+}
+
+int main() {
+int arr[] = {12, 11, 13, 5, 6};
+int n = sizeof(arr)/sizeof(arr[0]);
+
+printf("Given array is \n");
+printArray(arr, n);
+
+insertionSort(arr, n);
+
+printf("\nSorted array is \n");
+printArray(arr, n);
+
+return 0;
+}
+OUTPUT:
+
+Given array is 
+12 11 13 5 6 7 
+
+Sorted array is 
+5 6 7 11 12 13
+Example 5:
+#include <stdio.h>  
+ 
+void insert(int a[], int n) /* function to sort an aay with insertion sort */  
+{  
+    int i, j, temp;  
+    for (i = 1; i < n; i++) {  
+        temp = a[i];  
+        j = i - 1;  
+  
+        while(j>=0 && temp <= a[j])  /* Move the elements greater than temp to one position ahead from their current position*/  
+        {    
+            a[j+1] = a[j];     
+            j = j-1;    
+        }    
+        a[j+1] = temp;    
+    }  
+}  
+  
+void printArr(int a[], int n) /* function to print the array */  
+{  
+    int i;  
+    for (i = 0; i < n; i++)  
+        printf("%d ", a[i]);  
+}  
+  
+int main()  
+{  
+    int a[] = { 12, 31, 25, 8, 32, 17 };  
+    int n = sizeof(a) / sizeof(a[0]);  
+    printf("Before sorting array elements are - \n");  
+    printArr(a, n);  
+    insert(a, n);  
+    printf("\nAfter sorting array elements are - \n");    
+    printArr(a, n);  
+  
+    return 0;  
+}    
+Output:
+Before sorting array elements are
+
+
+12 31 25 8 32 17
+
+
+After sorting array elements are
+
+
+8 12 17 25 31 32
+
+
+
+
+
+
+Merge Sort 
+Merge sort is one of the most efficient sorting algorithms. It is based on the divide-and-conquer strategy. Merge sort continuously cuts down a list into multiple sublists until each has only one item, then merges those sublists into a sorted list.
+Algorithm:
+Create an empty list to store the merged results.
+Initialize two pointers, one for each of the sorted lists.
+While both pointers are less than the length of their respective lists:
+If the element at the first pointer is less than the element at the second pointer, add the element at the first pointer to the new list and increment the first pointer.
+Otherwise, add the element at the second pointer to the new list and increment the second pointer.
+Once one of the pointers reaches the end of its list, add all the remaining elements from the other list to the new list.
+Return the new list.
+
+
+Example 1:
+#include <stdio.h>
+
+
+void merge(int arr[], int l, int m, int r) {
+  int i = l;
+  int j = m + 1;
+  int k = 0;
+  int temp[r - l + 1];
+
+
+  while (i <= m && j <= r) {
+    if (arr[i] <= arr[j]) {
+      temp[k] = arr[i];
+      i++;
+    } else {
+      temp[k] = arr[j];
+      j++;
+    }
+    k++;
+  }
+
+
+  while (i <= m) {
+    temp[k] = arr[i];
+    i++;
+    k++;
+  }
+
+
+  while (j <= r) {
+    temp[k] = arr[j];
+    j++;
+    k++;
+  }
+
+
+  for (i = l; i <= r; i++) {
+    arr[i] = temp[i - l];
+  }
+}
+
+
+void mergeSort(int arr[], int l, int r) {
+  if (l < r) {
+    int m = (l + r) / 2;
+    mergeSort(arr, l, m);
+    mergeSort(arr, m + 1, r);
+    merge(arr, l, m, r);
+  }
+}
+
+
+int main() {
+  int arr[] = {5, 3, 2, 1, 4};
+  int n = sizeof(arr) / sizeof(arr[0]);
+
+
+  mergeSort(arr, 0, n - 1);
+
+
+  for (int i = 0; i < n; i++) {
+    printf("%d ", arr[i]);
+  }
+
+
+  return 0;
+}
+
+
+Output:
+1 2 3 4 5
+Example 2:
+#include <stdio.h>
+
+
+void merge(char arr[], int l, int m, int r) {
+  int i = l;
+  int j = m + 1;
+  int k = 0;
+  char temp[r - l + 1];
+
+
+  while (i <= m && j <= r) {
+    if (arr[i] <= arr[j]) {
+      temp[k] = arr[i];
+      i++;
+    } else {
+      temp[k] = arr[j];
+      j++;
+    }
+    k++;
+  }
+
+
+  while (i <= m) {
+    temp[k] = arr[i];
+    i++;
+    k++;
+  }
+
+
+  while (j <= r) {
+    temp[k] = arr[j];
+    j++;
+    k++;
+  }
+
+
+  for (i = l; i <= r; i++) {
+    arr[i] = temp[i - l];
+  }
+}
+
+
+void mergeSort(char arr[], int l, int r) {
+  if (l < r) {
+    int m = (l + r) / 2;
+    mergeSort(arr, l, m);
+    mergeSort(arr, m + 1, r);
+    merge(arr, l, m, r);
+  }
+}
+
+
+int main() {
+  char arr[] = {'c', 'a', 'b'};
+  int n = sizeof(arr) / sizeof(arr[0]);
+
+
+  mergeSort(arr, 0, n - 1);
+
+
+  for (int i = 0; i < n; i++) {
+    printf("%c ", arr[i]);
+  }
+
+
+  return 0;
+}
+Output:
+a b c
+Example 3:
+#include<stdio.h>
+
+
+void insertionSort(int arr[], int n) {
+int i, key, j;
+for (i = 1; i < n; i++) {
+	key = arr[i];
+	j = i - 1;
+	while (j >= 0 && arr[j] > key) {
+		arr[j + 1] = arr[j];
+		j = j - 1;
+	}
+	arr[j + 1] = key;
+}
+}
+
+
+void printArray(int arr[], int n) {
+int i;
+for (i = 0; i < n; i++)
+	printf("%d ", arr[i]);
+printf("\n");
+}
+
+
+int main() {
+int arr[] = {12, 11, 13, 5, 6};
+int n = sizeof(arr)/sizeof(arr[0]);
+
+
+printf("Given array is \n");
+printArray(arr, n);
+
+
+insertionSort(arr, n);
+
+
+printf("\nSorted array is \n");
+printArray(arr, n);
+
+
+return 0;
+}
+
+
+Output
+Given array is 
+12 11 13 5 6 
+
+
+Sorted array is 
+5 6 11 12 13
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5.Explain  Quick Sort  with algorithm and example.
+
+Quicksort is a divide-and-conquer sorting algorithm that works by repeatedly partitioning the unsorted array around a pivot value. The pivot value is chosen such that elements smaller than the pivot are placed to the left of the pivot, and elements larger than the pivot are placed to the right of the pivot. This partitioning process is then recursively applied to the left and right subarrays, until the entire array is sorted.
+
+
+Algorithm of quick sort
+Step 1 − Choose the highest index value has pivot
+Step 2 − Take two variables to point left and right of the list excluding pivot
+Step 3 − left points to the low index
+Step 4 − right points to the high
+Step 5 − while value at left is less than pivot move right
+Step 6 − while value at right is greater than pivot move left
+Step 7 − if both step 5 and step 6 does not match swap left and right
+Step 8 − if left ≥ right, the point where they met is New pivot
+
+Example 11:
+#include <stdio.h>
+
+void swap(int *a, int *b) {
+  int temp = *a;
+  *a = *b;
+  *b = temp;
+}
+
+int partition(int array[], int low, int high) {
+  int pivot = array[high];
+  int i = (low - 1);
+
+  for (int j = low; j < high; j++) {
+    if (array[j] <= pivot) {
+      i++;
+      swap(&array[i], &array[j]);
+    }
+  }
+
+  swap(&array[i + 1], &array[high]);
+  return (i + 1);
+}
+
+void quickSort(int array[], int low, int high) {
+  if (low < high) {
+    int pi = partition(array, low, high);
+
+    quickSort(array, low, pi - 1);
+    quickSort(array, pi + 1, high);
+  }
+}
+
+int main() {
+  int array[] = {6, 3, 7, 2, 4, 5};
+  int n = sizeof(array) / sizeof(array[0]);
+
+  quickSort(array, 0, n - 1);
+
+  printf("Sorted array: \n");
+  for (int i = 0; i < n; i++) {
+    printf("%d ", array[i]);
+  }
+
+  return 0;
+}
+
+Output:
+Sorted array:
+2 3 4 5 6 7
+
+Example 2:
+#include <stdio.h>
+
+// function to swap elements
+void swap(int *a, int *b) {
+  int t = *a;
+  *a = *b;
+  *b = t;
+}
+
+// function to find the partition position
+int partition(int array[], int low, int high) {
+  
+  // select the rightmost element as pivot
+  int pivot = array[high];
+  
+  // pointer for greater element
+  int i = (low - 1);
+
+  // traverse each element of the array
+  // compare them with the pivot
+  for (int j = low; j < high; j++) {
+    if (array[j] <= pivot) {
+        
+      // if element smaller than pivot is found
+      // swap it with the greater element pointed by i
+      i++;
+      
+      // swap element at i with element at j
+      swap(&array[i], &array[j]);
+    }
+  }
+
+  // swap the pivot element with the greater element at i
+  swap(&array[i + 1], &array[high]);
+  
+  // return the partition point
+  return (i + 1);
+}
+
+void quickSort(int array[], int low, int high) {
+  if (low < high) {
+    
+    // find the pivot element such that
+    // elements smaller than pivot are on left of pivot
+    // elements greater than pivot are on right of pivot
+    int pi = partition(array, low, high);
+    
+    // recursive call on the left of pivot
+    quickSort(array, low, pi - 1);
+    
+    // recursive call on the right of pivot
+    quickSort(array, pi + 1, high);
+  }
+}
+
+// function to print array elements
+void printArray(int array[], int size) {
+  for (int i = 0; i < size; ++i) {
+    printf("%d  ", array[i]);
+  }
+  printf("\n");
+}
+
+// main function
+int main() {
+  int data[] = {8, 7, 2, 1, 0, 9, 6};
+  
+  int n = sizeof(data) / sizeof(data[0]);
+  
+  printf("Unsorted Array\n");
+  printArray(data, n);
+  
+  // perform quicksort on data
+  quickSort(data, 0, n - 1);
+  
+  printf("Sorted array in ascending order: \n");
+  printArray(data, n);
+}
+
+OUT PUT
+Unsorted Array 8 7 2 1 0 9 6 
+Sorted array in ascending order: 0 1 2 6 7 8 9 Array is sorted
+
+Example 3:
+#include <stdio.h>
+
+void swap(int* a, int* b) {
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high];
+    int i = (low - 1);
+
+    for (int j = low; j <= high - 1; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+    return (i + 1);
+}
+
+void quickSort(int arr[], int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+
+int main() {
+    int arr[] = {64, 34, 25, 12, 22, 11, 90};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Unsorted array: \n");
+    printArray(arr, n);
+
+    quickSort(arr, 0, n - 1);
+
+    printf("Sorted array: \n");
+    printArray(arr, n);
+
+    return 0;
+}
+
+output
+ Unsorted array: 
+64 34 25 12 22 11 90 
+Sorted array: 
+11 12 22 25 34 64 90
+  
+
+
+Example 4
+#include <stdio.h>
+
+void swap(char* a, char* b) {
+    char t = *a;
+    *a = *b;
+    *b = t;
+}
+
+int partition(char arr[], int low, int high) {
+    char pivot = arr[high];
+    int i = (low - 1);
+
+    for (int j = low; j <= high - 1; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[high]);
+    return (i + 1);
+}
+
+void quickSort(char arr[], int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+void printArray(char arr[], int size) {
+    for (int i = 0; i < size; i++)
+        printf("%c ", arr[i]);
+    printf("\n");
+}
+
+int main() {
+    char arr[] = {'g', 'e', 'e', 'k', 's', 'f', 'o', 'r', 'g', 'e', 'e', 'k', 's'};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Unsorted array: \n");
+    printArray(arr, n);
+
+    quickSort(arr, 0, n - 1);
+
+    printf("Sorted array: \n");
+    printArray(arr, n);
+
+    return 0;
+}
+
+Out Put
+Unsorted array: 
+g e e k s f o r g e e k s 
+Sorted array: 
+e e e f g g k k o r s s
+
+
+Example 5
+c
+#include <stdio.h>
+#include <string.h>
+
+void swap(char* a, char* b) {
+    char t[20];
+    strcpy(t, a);
+    strcpy(a, b);
+    strcpy(b, t);
+}
+
+int partition(char arr[][20], int low, int high) {
+    char pivot[20];
+    strcpy(pivot, arr[high]);
+    int i = (low - 1);
+
+    for (int j = low; j <= high - 1; j++) {
+        if (strcmp(arr[j], pivot) < 0) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[i + 1], arr[high]);
+    return (i + 1);
+}
+
+void quickSort(char arr[][20], int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+
+void printArray(char arr[][20], int size) {
+    for (int i = 0; i < size; i++)
+        printf("%s ", arr[i]);
+    printf("\n");
+}
+
+int main() {
+    char arr[][20] = {"banana", "apple", "grape", "orange", "kiwi"};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Unsorted array: \n");
+    printArray(arr, n);
+
+    quickSort(arr, 0, n - 1);
+
+    printf("Sorted array: \n");
+    printArray(arr, n);
+
+    return 0;
+}
+OutPuT
+Unsorted array: 
+banana apple grape orange kiwi 
+Sorted array: 
+apple banana grape kiwi orange
+
+
+
+6.Heap sort is a sorting algorithm that uses a binary heap data structure to sort a list of elements. It is an efficient algorithm that is often used in practice.
+The heap sort algorithm works as follows:
+Here’s the algorithm for heap sort:
+Step 1: Build Heap. Build a heap from the input data. Build a max heap to sort in increasing order, and build a min heap to sort in decreasing order.
+
+Step 2: Swap Root. Swap the root element with the last item of the heap. 
+
+Step 3: Reduce Heap Size. Reduce the heap size by 1.
+
+Step 4: Re-Heapify. Heapify the remaining elements into a heap of the new heap size by calling heapify on the root node.
+
+Step 5: Call Recursively. Repeat steps 2,3,4 as long as the heap size is greater than 2.
+
+Example 1.
+#include <stdio.h>
+
+// function to swap elements
+void swap(int *a, int *b) {
+  int t = *a;
+  *a = *b;
+  *b = t;
+}
+
+// function to build a heap
+void buildHeap(int array[], int n) {
+  for (int i = n / 2 - 1; i >= 0; i--) {
+    heapify(array, i, n);
+  }
+}
+
+// function to heapify a subtree
+void heapify(int array[], int i, int n) {
+  int largest = i; // initialize largest as root
+  int left = 2 * i + 1; // left child
+  int right = 2 * i + 2; // right child
+
+  // if left child is greater than root
+  if (left < n && array[left] > array[largest]) {
+    largest = left;
+  }
+
+  // if right child is greater than root
+  if (right < n && array[right] > array[largest]) {
+    largest = right;
+  }
+
+  // if largest is not root
+  if (largest != i) {
+    swap(&array[i], &array[largest]);
+    heapify(array, largest, n);
+  }
+}
+
+// function to sort the array using heap sort
+void heapSort(int array[], int n) {
+  buildHeap(array, n);
+
+  for (int i = n - 1; i >= 0; i--) {
+    swap(&array[0], &array[i]);
+    heapify(array, 0, i);
+  }
+}
+
+// function to print the array
+void printArray(int array[], int n) {
+  for (int i = 0; i < n; i++) {
+    printf("%d ", array[i]);
+  }
+  printf("\n");
+}
+
+// main function
+int main() {
+  int array[] = {8, 7, 2, 1, 0, 9, 6};
+  int n = sizeof(array) / sizeof(array[0]);
+
+  printf("Unsorted Array\n");
+  printArray(array, n);
+
+  heapSort(array, n);
+
+  printf("Sorted array in ascending order: \n");
+  printArray(array, n);
+
+  return 0;
+}
+
+Output:
+Unsorted Array
+8 7 2 1 0 9 6
+
+Sorted array in ascending order:
+0 1 2 6 7 8 9
+
+Example 2:
+#include <stdio.h>
+
+void heapify(int arr[], int n, int i) {
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+
+    if (left < n && arr[left] > arr[largest])
+        largest = left;
+
+    if (right < n && arr[right] > arr[largest])
+        largest = right;
+
+    if (largest != i) {
+        // Swap arr[i] and arr[largest]
+        int temp = arr[i];
+        arr[i] = arr[largest];
+        arr[largest] = temp;
+
+        // Recursively heapify the affected sub-tree
+        heapify(arr, n, largest);
+    }
+}
+
+void heapSort(int arr[], int n) {
+    // Build heap (rearrange array)
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
+
+    // One by one extract an element from the heap
+    for (int i = n - 1; i > 0; i--) {
+        // Move the current root to the end
+        int temp = arr[0];
+        arr[0] = arr[i];
+        arr[i] = temp;
+
+        // Call max heapify on the reduced heap
+        heapify(arr, i, 0);
+    }
+}
+
+int main() {
+    int arr[] = {12, 11, 13, 5, 6, 7};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Original array: ");
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+
+    heapSort(arr, n);
+
+    printf("Sorted array: ");
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+
+    return 0;
+}
+ Output
+Original array: 12 11 13 5 6 7
+Sorted array: 5 6 7 11 12 13
+ Example 3
+
+#include <stdio.h>
+#include <string.h>
+
+// function to swap elements
+void swap(char *a, char *b) {
+  char t[100];
+  strcpy(t, a);
+  strcpy(a, b);
+  strcpy(b, t);
+}
+
+// function to max heapify a subtree
+void maxHeapify(char array[][100], int i, int n, int field) {
+  int largest = i; // initialize largest as root
+  int left = 2 * i + 1; // left child
+  int right = 2 * i + 2; // right child
+
+  // if left child is greater than root
+  if (left < n && strcmp(array[left], array[largest]) > 0) {
+    largest = left;
+  }
+
+  // if right child is greater than root
+  if (right < n && strcmp(array[right], array[largest]) > 0) {
+    largest = right;
+  }
+
+  // if largest is not root
+  if (largest != i) {
+    swap(array[i], array[largest]);
+    maxHeapify(array, largest, n, field);
+  }
+}
+
+// function to build a max heap
+void buildMaxHeap(char array[][100], int n, int field) {
+  for (int i = n / 2 - 1; i >= 0; i--) {
+    maxHeapify(array, i, n, field);
+  }
+}
+
+// function to sort the array using heap sort
+void heapSort(char array[][100], int n, int field) {
+  buildMaxHeap(array, n, field);
+
+  for (int i = n - 1; i >= 1; i--) {
+    swap(array[0], array[i]);
+    maxHeapify(array, 0, i, field);
+  }
+}
+
+// function to print the array
+void printArray(char array[][100], int n) {
+  for (int i = 0; i < n; i++) {
+    printf("%s ", array[i]);
+  }
+  printf("\n");
+}
+
+// main function
+int main() {
+  char array[][100] = {"apple", "banana", "cherry", "orange", "watermelon"};
+  int n = sizeof(array) / sizeof(array[0]);
+
+  printf("Unsorted Array\n");
+  printArray(array, n);
+
+  heapSort(array, n, 0); // sort the array in alphabetical order
+
+  printf("Sorted array in ascending order: \n");
+  printArray(array, n);
+
+  return 0;
+}
+
+Output:
+Unsorted Array
+apple banana cherry orange watermelon
+
+Sorted array in ascending order:
+apple banana cherry orange watermelon
+  
+
+Example 4:
+
+#include <stdio.h>
+
+void heapify(char arr[], int n, int i) {
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+
+    if (left < n && arr[left] > arr[largest])
+        largest = left;
+
+    if (right < n && arr[right] > arr[largest])
+        largest = right;
+
+    if (largest != i) {
+        // Swap arr[i] and arr[largest]
+        char temp = arr[i];
+        arr[i] = arr[largest];
+        arr[largest] = temp;
+
+        // Recursively heapify the affected sub-tree
+        heapify(arr, n, largest);
+    }
+}
+
+void heapSort(char arr[], int n) {
+    // Build heap (rearrange array)
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
+
+    // One by one extract an element from the heap
+    for (int i = n - 1; i > 0; i--) {
+        // Move the current root to the end
+        char temp = arr[0];
+        arr[0] = arr[i];
+        arr[i] = temp;
+
+        // Call max heapify on the reduced heap
+        heapify(arr, i, 0);
+    }
+}
+
+int main() {
+    char arr[] = {'A', 'N', 'K', 'X', 'W', 'K', 'O', 'Z', 'Q', 'V', 'Y'};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Original array: ");
+    for (int i = 0; i < n; i++)
+        printf("%c ", arr[i]);
+    printf("\n");
+
+    heapSort(arr, n);
+
+    printf("Sorted array: ");
+    for (int i = 0; i < n; i++)
+        printf("%c ", arr[i]);
+    printf("\n");
+
+    return 0;
+}
+OUTPUT
+Original array: A N K X W K O Z Q V Y 
+Sorted array: A K K N O Q V W X Y Z
+
+
+
+
+Bubble sort: Bubble sort is a simple sorting algorithm that repeatedly steps through a list, compares adjacent elements, and swaps them if they are in the wrong order. It gets its name from the way smaller elements "bubble" to the top of the list over multiple passes. Although bubble sort is easy to understand and implement, it is inefficient for large lists, as it has a worst-case time complexity of O(n^2), making it impractical for sorting large datasets. Other sorting algorithms like quicksort or mergesort are generally more efficient for larger data sets.
+
+Algorithm:
+Starting with the first element(index = 0), compare the current element with the next element of the array.
+If the current element is greater than the next element of the array, swap them.
+If the current element is less than the next element, move to the next element. Repeat Step 1.
+C code:
+
+
+#include <stdio.h>
+void bubble_sort(int array[], int size) {
+  int i, j;
+  for (i = 0; i < size - 1; i++) {
+    for (j = 0; j < size - i - 1; j++) {
+      if (array[j] > array[j + 1]) {
+        int temp = array[j];
+        array[j] = array[j + 1];
+        array[j + 1] = temp;
+      }
+    }
+  }
+}
+
+
+int main() {
+  int array[] = {64, 34, 25, 12, 22, 11, 90};
+  int size = sizeof(array) / sizeof(array[0]);
+
+
+  bubble_sort(array, size);
+
+
+  printf("Sorted array: ");
+  for (int i = 0; i < size; i++) {
+    printf("%d ", array[i]);
+  }
+  printf("\n");
+
+
+  return 0;
+}
+Output:Sorted array: 11 12 22 25 34 64 90
+
+
+Selection Sort: Selection sort is a simple sorting algorithm that works by repeatedly selecting the minimum (or maximum) element from an unsorted portion of the list and moving it to the end of the sorted portion. It has a time complexity of O(n^2) in the worst, average, and best cases, making it inefficient for large datasets. Despite its simplicity, selection sort is easy to implement and suitable for small lists where its simplicity outweighs its inefficiency. The algorithm maintains two sublists - one for the sorted part and another for the unsorted part, gradually reducing the unsorted portion until the entire list is sorted. While selection sort is straightforward, it's typically outperformed by more efficient sorting algorithms for larger datasets.
+Algorithm:
+Step 1: Set minIndex to position 0
+(minIndex will hold the index of the smallest number in the unsorted subarray)
+Step 2: Search for the smallest element in the unsorted subarray and update minIndex
+Step 3: Swap the element at the position minIndex with the first element of the unsorted subarray.
+Step 4: Again set minIndex to the first position of the  unsorted subarray
+Step 5:  Repeat steps 2 to 4 until the array gets sorted
+C Code:
+#include <stdio.h>
+
+
+void selection_sort(int array[], int size) {
+  int i, j, min_idx;
+
+
+  for (i = 0; i < size - 1; i++) {
+    min_idx = i;
+    for (j = i + 1; j < size; j++) {
+      if (array[j] < array[min_idx]) {
+        min_idx = j;
+      }
+    }
+
+
+    // Swap the minimum element with the first element
+    int temp = array[i];
+    array[i] = array[min_idx];
+    array[min_idx] = temp;
+  }
+}
+
+
+int main() {
+  int array[] = {64, 34, 25, 12, 22, 11, 90};
+  int size = sizeof(array) / sizeof(array[0]);
+
+
+  selection_sort(array, size);
+
+
+  printf("Sorted array: ");
+  for (int i = 0; i < size; i++) {
+    printf("%d ", array[i]);
+  }
+  printf("\n");
+
+
+  return 0;
+}
+
+
+Output:Sorted array: 11 12 22 25 34 64 90
+
+
+
+
+
+
+

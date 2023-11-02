@@ -26,7 +26,7 @@ class SelectionSort extends Container {
   };
 }
 
-ss = new SelectionSort($(".item-container"), [4, 3, 7, 1, 10,6, 2, 9,1]);
+ss = new SelectionSort($(".item-container"), [9, 5, 14, 8, 3, 15, 2, 12, 4, 7, 1, 10, 13, 6, 11]);
 ss.sort()
 $("#next").click(() => {
   ss.step();
