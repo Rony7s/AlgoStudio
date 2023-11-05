@@ -26,7 +26,7 @@ class BubbleSort extends Container {
 }
 
 const container = document.querySelector(".item-container");
-bs = new BubbleSort(container, [9, 5, 14, 8, 3, 15, 2, 12, 4, 7, 1, 10, 13, 6, 11]);
+bs = new BubbleSort(container, [9, 5, 14, 8, 3, 15, 2]);
 bs.sort();
 
 $("#next").click(() => {
